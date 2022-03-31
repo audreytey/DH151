@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello World</title>
+	<meta charset="utf-8" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/style.css">
+
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+</head>
+<body>
+
+	<div class="header">
+		<span style="font-family:fantasy;font-size:40px">Where is Home?</span>
+	</div>
+	<div class="sidebar">
+		<span style="font-family:fantasy;font-size:20px">
+            Southeast Asia is comprised of eleven countries, including tropical Singapore.
+            <br><br> Check out my favourite food, view and park by clicking on the markers on the map!
+        </span>
+	
+        <!-- buttons but I can't get them to work
+        <button>Favourite view here!</button>
+        <button>Favourite food here!</button>
+        <button>Favourite park here!</button>
+        -->
+
+    </div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+
+    <script>
+        
+        /* pop up */
+        alert('Surprise!')
+        console.log('hello console!')
+
+        /* map settings */
+        var map = L.map('map').setView([1.3521, 103.8198], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        /* original map marker
+
+        var marker = L.marker([1.3521, 103.8198]).addTo(map)
+            .bindPopup('Singapore!<br> This is home for Audrey.')
+            .openPopup();
+            
+        */
+
+        /* new map markers*/
+
+        var locations = [
+            ['Here lies my favourite food!', 1.3320, 103.9387],
+            ['Here lies my favourite view!', 1.2847, 103.8610],
+            ['Here lies my favourite park!', 1.3040, 103.8748],
+            ['Singapore!<br> This is home for Audrey.', 1.3521, 103.8198]
+            
+        ];
+
+        for (var i = 0; i < locations.length; i++) {
+            marker = new L.marker([locations[i][1], locations[i][2]])
+            .addTo(map)
+            .bindPopup(locations[i][0])
+            .openPopup(); /* by default, Leaflet only allows for 1 pop up */
+        }
+        
+    </script>
+
+</body>
+</html>
