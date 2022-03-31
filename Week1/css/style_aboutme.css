@@ -1,0 +1,23 @@
+body,html {
+	margin:0;
+	height:100%;
+	width:100%;
+}
+
+body {
+    background-color: #f8f3e6;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 17px;
+
+}
+
+.content {
+    text-align: center;
+    padding-top: 50px;
+    padding-right: 300px;
+    padding-left: 300px;
+}
+
+.list {
+    padding-left: 590px;
+    padding-bottom: 50px;
+}
