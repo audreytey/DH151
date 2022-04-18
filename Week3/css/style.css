@@ -27,7 +27,7 @@ body {
 }
 
 .sidebar {
-	color: rgb(41, 138, 223);
+	color: rgb(29, 118, 197);
 	grid-area: sidebar;
 	padding:10px;
 	background-color: #e1e8f8;
