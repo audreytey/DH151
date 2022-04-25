@@ -20,16 +20,22 @@
 <body>
 
 	<div class="header">
-		Robin Dunitz Slides of Los Angeles Murals, 1925-2002
+		Number of Hate Crimes in US Cities, 2010-2018
 	</div>
 	<div class="sidebar">
-		
+		<p>The map on the right displays the number of hate crimes that occurred from the years 2010 to 2018 in each US city.</p>
+		<p>Hover over each city to find the number of hate crimes committed. Alternatively, click on the buttons below to explore crime in selected areas.</p>
+		<div class="sidebar-item" onclick="flyToIndex(34.1139,-118.4068)">Los Angeles</div>
+		<div class="sidebar-item" onclick="flyToIndex(40.6943,-73.9249)">New York City</div>
+		<div class="sidebar-item" onclick="flyToIndex(41.8373,-87.6862)">Chicago</div>
+		<div class="sidebar-item" onclick="flyToIndex(39.3051,-76.6144)">Baltimore</div>
+		<div class="sidebar-item" onclick="flyToIndex(35.8325,-78.6435)">Raleigh</div>
 	</div>
 	<div class="content">
 		<div id="map"></div>
 	</div>
 	<div class="footer">
-		Source: <a href="http://digitallibrary.usc.edu/cdm/landingpage/collection/p15799coll15">USC Libraries</a>
+		Source: <a href="https://www.kaggle.com/datasets/louissebye/united-states-hate-crimes-19912017">United States Hate Crimes (1991-2018) Dataset</a> and <a href="https://simplemaps.com/data/us-cities">US Cities Database</a>
 	</div>
 
 	<script src="js/map.js"></script>
