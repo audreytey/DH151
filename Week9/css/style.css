@@ -10,7 +10,7 @@ body,html {
 
 body {
 	display: grid;
-	grid-template-rows: 60px 1fr 1fr;
+	grid-template-rows: 60px 1fr 400px; /* the 3rd value here has to match the height of the table in the footer in map.js */
 	grid-template-columns: 1fr 1fr; /* 1fr = 1 fraction, so it means 50-50 in this case */
 	grid-template-areas: 
 	"header header"

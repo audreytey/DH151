@@ -207,7 +207,9 @@ function createDashboard(properties){
 	// data fields: labels for the pie chart !!!
 	let fields = ['Less than $25K','$25K to $50K','$50K to $75K','$75K to $100K', 'More than $100K'];
 
-	// set chart options
+	// set chart options: see documentation here (https://apexcharts.com/)
+
+	// for a bar chart:
 	let options = {
 		chart: {
 			type: 'bar',
@@ -238,8 +240,8 @@ function createDashboard(properties){
     let options = {
 	    chart: {
 		    type: 'pie',
-		    height: 400,
-		    width: 400,			
+		    height: 600, // size of pie chart
+		    width: 600,	// size of pie chart
 		    animations: {
 			    enabled: false,
 		    }
@@ -263,8 +265,9 @@ function createDashboard(properties){
 	chart.render()
 }
 
-// createTable function 
+// create table function 
 function createTable(){
+
 	// empty array for our data
 	let datafortable = [];
 
@@ -272,7 +275,35 @@ function createTable(){
 	geojson_data.features.forEach(function(item){
 		datafortable.push(item.properties)
 	})
-	console.log(datafortable)
+
+	// array to define the fields: each object is a column
+	let fields = [
+		{ name: "Qualifying Name", type: "text"},
+		{ name: '% Households: Less than $25,000', type: 'number'},
+		{ name: '% Households: $100,000 or More', type: 'number'},
+		{ name: 'Median Household Income (In 2019 Inflation Adjusted Dollars)', type: 'number'},
+	]
+ 
+	// create the table in our footer
+	$(".footer").jsGrid({
+		width: "100%",
+		height: "400px", // this value here has to match the grid-template-rows in body for the footer in style.css
+		
+		editing: true,
+		sorting: true,
+		paging: true,
+		autoload: true,
+ 
+		pageSize: 10,
+		pageButtonCount: 5,
+ 
+		data: datafortable,
+		fields: fields,
+		rowClick: function(args) { 
+			console.log(args);
+			zoomTo(args.item.GEO_ID)
+		},
+	});
 }
 
 // clickable row function
